@@ -19,6 +19,7 @@ void Util::setFolderIcon(const QString &folderPath, const QString &iconPath, int
 
     // 这里返回临时对象指针没事，因为语句没结束不会被释放
     HRESULT hr = SHGetSetFolderCustomSettings(&fcs, folderPath.toStdWString().c_str(), FCS_FORCEWRITE);
+    qDebug() << folderPath.toStdWString() << hr;
     if (FAILED(hr)) {
         qWarning() << "Failed to set folder icon";
     }
